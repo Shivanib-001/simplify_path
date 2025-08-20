@@ -195,8 +195,16 @@
 }
         
 function simplify(){
-    fetch("/simplify")
+    fetch("/simplify").then((data) => {
+            return data.json();
+          })
+          .then((post) => {
+            console.log(post);
+            var polyline_ = L.polyline(post.boundary, { color: "yellow"}).addTo(map);       
+ map.fitBounds(polyline_.getBounds());
+       }); 
 }
+        
 
         /*----------------------------path plan connection--------------------------------------*/
         
