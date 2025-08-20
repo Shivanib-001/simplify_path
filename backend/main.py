@@ -83,7 +83,7 @@ def simplify():
             data = [json.loads(line) for line in f if line.strip()]
 
     # Extract coords (lon, lat)
-    coords = [(obj["longitude"], obj["latitude"]) for obj in data]
+    coords = [( obj["latitude"],obj["longitude"]) for obj in data]
     out=Geodesy.simplify_from_file(coords)
     #get data from json into a list
     #out=[[28.43125819745395, 77.33779281377794],[28.431364339125686,77.33813881874086],[28.431163849211924, 77.33842045068742],[28.430958641495092,77.33802884817125]]
